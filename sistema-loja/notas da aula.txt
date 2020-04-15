@@ -1,0 +1,18 @@
+﻿diferença entre meta e palavras chave
+open - criar arquivo - index.html
+! tab
+brincar com div e span
+
+abrir = clicar com botao direito no arquivo - reveal in finder ou open in live server
+
+
+collorzila
+
+banco de dados gratuito pesquisar no google
+
+linha = tr
+
+relação label com input : name ~ id
+
+button dentro do formulario é tipo submit
+
