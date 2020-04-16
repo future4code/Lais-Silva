@@ -1,0 +1,24 @@
+#navegador {
+    background-color: black;
+    padding: 40px;
+    text-align: right;
+}
+
+.icone {
+    display: inline;
+    color:white;
+}
+
+h1, h3, h4 {
+    background-color: black;
+    color:white;
+    padding: 50px;
+    margin: 0px;
+}
+
+table {
+    background-color: black;
+    display: block;
+    color:white;
+}    
+
