@@ -1,0 +1,38 @@
+* {
+padding: 0px;
+margin: 0px;
+text-align: center;
+font-family: courier;}
+
+body {background-color: antiquewhite;} 
+
+.row {padding-top: 40px;
+font-size: 20px;
+text-align: right;
+padding-right: 60px;
+text-decoration: none;
+}
+
+.conteudo {padding: 0px;
+}
+
+a {
+    color: black;
+}
+
+.conteudo2 {background-color: grey;
+margin: 40px;
+padding:20px;} 
+
+.texto {padding:0px 80px 0px 90px;
+text-align: center
+;}
+
+.projetos {background-color: grey;
+    margin: 40px;
+    padding:20px;}
+
+#rodape {background-color: grey;
+    margin: 40px;
+    padding: 40px;
+}   
