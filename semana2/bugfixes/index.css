@@ -76,7 +76,14 @@ div img {
 }
 
 #container-para-comprar {
-    background-color: #e7eb90;
+    background-color: #e7eb90; 
+    position: relative;
+}
+
+button {
+    position: absolute;
+    top: 300px;
+    right: 890px;   
 }
 
 #container-para-comprar>p {
