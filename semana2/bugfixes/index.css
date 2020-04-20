@@ -75,6 +75,10 @@ div img {
     padding: 15px 0px;
 }
 
+#container-de-descricao {
+    padding-top: 150px;
+}
+
 #container-para-comprar {
     background-color: #e7eb90; 
     position: relative;
