@@ -140,3 +140,8 @@ td button {
 #back-button:hover {
     background-color: #635a3d
 }
+
+img {
+    height: 80px;
+    width: 80px;
+}
