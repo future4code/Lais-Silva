@@ -84,7 +84,7 @@ div img {
     position: relative;
 }
 
-button {
+.botao-amarelo {
     position: absolute;
     top: 300px;
     right: 890px;   
@@ -109,7 +109,8 @@ div:last-child {
 }
 
 table {
-    width: 60%;
+    width: 60%;    
+    text-align: center;
 }
 
 td button {
