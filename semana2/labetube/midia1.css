@@ -1,0 +1,39 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header , footer {
+    background-color: salmon ;
+    font-size: 1.5rem;   
+    height: 5vh;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+header {
+    padding: 10px;
+}
+
+input {
+    margin-left: 70px;
+    float: right;
+}
+
+main { 
+    width: 50vh;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+h3 {
+    margin: 3vw;
+}
+
+video { 
+    margin: 30px;
+    max-width: 1280px;
+   }
+
+footer {
+    margin-bottom: 0px;
+}
