@@ -1,4 +1,3 @@
-/*
 //INTERPRETAÇÃO DE CÓDIGO
 // EXERCÍCIO1
 
@@ -26,7 +25,7 @@ console.log("e. ", typeof resultado) //e. boolean
 b. O index inicial de uma array é 0.
 c. Se determina o tamanho da arrey com tamanho = array.lenght
 d. Mensagens impressas no console abaixo. */
-/*
+
 let array
 console.log('I. ', array) //I. undefined
 
@@ -90,7 +89,7 @@ console.log ("4. E ai, ja pensou na existencia de mundos paralelos sem pizza? Re
 
 p5 = prompt("5. Agora, escreva uma mensagem pro seu EU paralelo que vive num mundo sem pizza.")
 console.log ("5. Agora, escreva uma mensagem pro seu EU paralelo que vive num mundo sem pizza. Mensagem:", p5)
-*/
+
 //EXERCÍCIO3
 
 k = prompt("Quantos quilowatts você e sua familia consumiram esse mês em casa?")
