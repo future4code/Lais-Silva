@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="index.js" defer></script>
+    <link href="index.css" type="text/css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h3>Meu planner semanal</h3>
+      <input type="text" placeholder="Insira uma atividade">
+      <select name="diaDaSemana" id="diaDaSemana">
+      <option value="segunda">Segunda-Feira</option>
+      <option value="terca">Terça-Feira</option>
+      <option value="quarta">Quarta-Feira</option>
+      <option value="quinta">Quinta-Feira</option>
+      <option value="sexta">Sexta-Feira</option>
+      <option value="sabado">Sábado</option>
+      <option value="domingo">Domingo</option>
+      </select>
+      <button onclick="adicionarItem()">Criar Item</button>
+    </header>
+    <div onclick="riscar()" id="container">
+      <ul id="segunda">
+        <lh>Segunda-feira</lh>
+      </ul>
+      <ul id="terca">
+        <lh>Terça-feira</lh>
+      </ul>
+      <ul id="quarta">
+        <lh>Quarta-feira</lh>
+      </ul>
+      <ul id="quinta">
+        <lh>Quinta-feira</lh>
+      </ul>
+      <ul id="sexta">
+        <lh>Sexta-feira</lh>
+      </ul>
+      <ul id="sabado">
+        <lh>Sabado</lh>
+      </ul>
+      <ul id="domingo">
+        <lh>Domingo</lh>
+      </ul>
+    </div>
+    <button onclick="limpar()">Limpar</button>
+</body>
+</html>
