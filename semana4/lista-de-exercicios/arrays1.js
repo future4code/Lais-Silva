@@ -10,3 +10,7 @@ let filtraAdultos = pessoas.filter((pessoas) => {
 })
 
 console.log(filtraAdultos)
+
+let filtraJovens = pessoas.filter((pessoas) => {
+    return pessoas.idade > 20 ;
+})
