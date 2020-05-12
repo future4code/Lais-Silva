@@ -1,0 +1,7 @@
+.cardPequeno {
+    width: 500px;
+    border: 2px solid black;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
