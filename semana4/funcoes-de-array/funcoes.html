@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" type="text/css" href="funcao.css">  
+<script src="funcoes.js" defer></script>    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadorinha</title>
+    <header>Calculadorinha de despesas</header>
+    <section id="container">
+        <article id="cadastro">
+            <h3>Cadastro de despesas</h3>
+            <form id="form" onSubmit="return false">
+                <p>Valor despendido(dê preferencia a numeros inteiros):</p>
+                <input id="valorDespesa" placeholder="Valor">
+                <p>Tipo de despesa (vinil, comida, outros):</p>
+                <input id="tipoDespesa" placeholder="Tipo de despesa">
+                <p>Descrição da despesa:</p>
+                <input id="descricaoDespesa" placeholder="Descrição da despesa">
+                <button onclick="gerarDespesa(event)">Inserir despesa</button>
+            </form>
+        </article> 
+        <article id="detalhes">   
+            <h3>Despesas detalhadas</h3>
+            <form>
+                <p>Tipo de despesa (vinil, comida, outros):</p>
+                <input placeholder="Tipo de despesa">
+                <p>Valor mínimo:</p>
+                <input placeholder="Valor mínimo:">
+                <p>Valor máximo:</p>
+                <input placeholder="Valor máximo">
+                <button onclick="despesaDetalhada()">Adicionar filtros</button>
+            </form>
+        </article>
+        <article>
+            <h3>Extrato</h3>
+            <h4>Valor:</h4>
+            <p id="extrato">Gasto total: </p>
+            <p id="extratoVinil">Gasto com comida: </p>
+            <p id="extratoVinil">Gasto com outros: </p>
+        </article>    
+</section>
+</head>
+<body>
+    
+</body>
+</html>
