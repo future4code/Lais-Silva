@@ -2,9 +2,13 @@
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.labenusers {
+  display: grid;
+}
+
 .form {
   border: 1px black solid;
   margin: 20px;
   padding-bottom: 20px;
-  padding-left: 20px
+  padding-left: 20px;
 }
