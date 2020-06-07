@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+}
+
+
+.newPlaylistForm {
+  margin: 1vw;
+  border: 1px solid black;
+  height: 10vw;
+  text-align: center;
+}
+
+.userPlaylists {
+  display: grid;
+  grid-template: 1fr / auto auto auto ;
+  justify-content: center;
+  align-items: center;
+  grid-column-gap: 5vw;
+}
+
+.userPlaylists > p {
+  border: 1px solid black;
+  border-radius: 20px;
+  height: 5vh;
+  text-align: center;
+  padding: 0;
+  cursor: pointer;
+  align-items: center;
+  color: blue;
+  background-color: whitesmoke;
+  padding: 20px 30px 0px 30px;
+}
+
+.form > p {
+ cursor: pointer;
+
+}
+
+
