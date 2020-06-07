@@ -59,7 +59,6 @@ class Lista extends React.Component {
         .catch(e => {
             alert("Ocorrreu um erro ao apagar")
         })
-    
     }    
 
     botaoAlteraLista = () => {
@@ -96,10 +95,10 @@ class Lista extends React.Component {
                 <span onClick={() => this.confirmaExclusao(cadastros.id)}> X </span>
               </li>
             )
-          })}
-      </div>
-      </ul>
 
+          })}
+        </div>
+        </ul>
       )    
     }
 }
