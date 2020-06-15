@@ -1,0 +1,20 @@
+button {
+    margin: 20px;
+}
+
+ul {
+    margin: 40px;
+}
+
+li {
+    margin: 30px;
+    padding: 20px;
+    border: 1px solid black;
+    width: 20vw;
+}
+
+span {
+    color: red;
+    cursor: pointer;
+    margin: 80px
+}
