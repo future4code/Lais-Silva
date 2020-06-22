@@ -1,24 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import styled from 'styled-components';
 
-const MatchContainer = styled.div`
-  display: flex;
-` 
+import { MatchContainer, MatchImage } from './style';
 
-const Image = styled.img`
-  width: 40px;
-  height: 40px;
-  border-radius: 30px;
-  margin: 10px;
-`
-
-
-function App() {
+function Matches () {
   
   const [ likes, setLikes ] = useState([])
 
-  const getLikes = () => {
+  useEffect(() => {
     axios
     .get (`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/lais-petra/matches`)
     .then(response => {
@@ -27,17 +16,13 @@ function App() {
     .catch(err => {
       alert(err)
     })
-  }
-
-  useEffect(() => {
-    getLikes()
   }, [])
   
   return (
     <div>
       {likes.map(like => {
         return  <MatchContainer>
-            <Image src={like.photo} />
+            <MatchImage src={like.photo} />
             <p>{like.name}</p>  
           </MatchContainer>
      })}
@@ -45,4 +30,4 @@ function App() {
   );
 }
 
-export default App;
+export default Matches;
