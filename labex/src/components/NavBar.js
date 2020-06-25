@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
 const NavBar = () => {
@@ -16,39 +16,40 @@ const NavBar = () => {
     }
 
     const NavBar = styled.div`
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    height: 45px;
+        font-family: 'Allerta', sans-serif;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        height: 45px;
     `
     const NavBarIcons = styled.div`
-    display: flex;
-    cursor: pointer;
+        display: flex;
+        cursor: pointer;
     `
     const Icons = styled.p`
-    padding-right: 60px;
+        padding-right: 60px;
+        :hover {
+            text-decoration: underline;
+        }
     `
     const Logo = styled.h4`
-    padding-left: 60px;
+        padding-left: 3vw;
     `
-    const Linha = styled.div`
-    width: 100vw;
-    height: 0px;
-    left: 41px;
-    top: 107px;
-    border: 1px solid #C9C9C9;
+    const Line = styled.hr`
+        border: 0.2px solid;
+        border-style: outset;
     `
     return (
     <div>
         <NavBar>
             <Logo>labeX</Logo>
             <NavBarIcons>
-                <Icons onClick={goToHomePage}>Home</Icons>
-                <Icons onClick={goToTripsPage}>Viagens</Icons>
-                <Icons onClick={goToLoginPage}>Login</Icons>
+                <Icons onClick={goToHomePage}>home</Icons>
+                <Icons onClick={goToTripsPage}>viagens</Icons>
+                <Icons onClick={goToLoginPage}>login</Icons>
             </NavBarIcons>
         </NavBar>
-        <Linha />
+        <Line />
     </div>
 )
 }

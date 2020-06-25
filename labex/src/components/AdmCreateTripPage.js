@@ -27,29 +27,30 @@ const Form = styled.div`
         border-radius: 100px;
         margin-left: 10vw;
         margin-top: 2vw;
+        display: block;
     `
 const FormPage = () => {
     
-    const [ name, setName] = useState("")
-    const [ age, setAge] = useState("")
-    const [ profession, setProfession] = useState("")
-    const [ country, setCountry] = useState("")
-    const [ applicationText, setApplicationText] = useState("")
+    const [name, setName] = useState("")
+    const [planet, setPlanet] = useState("")
+    const [date, setDate] = useState("")
+    const [description, setDescription] = useState("")
+    const [duration, setDuration] = useState("")
     
     const handleUpdateName = (event) => {
         setName(event.target.value)
     }
-    const handleUpdateAge = (event) => {
-        setAge(event.target.value)
+    const handleUpdatePlanet = (event) => {
+        setPlanet(event.target.value)
     }
-    const handleUpdateProfession = (event) => {
-        setProfession(event.target.value)
+    const handleUpdateDate = (event) => {
+        setDate(event.target.value)
     }
-    const handleUpdateCountry = (event) => {
-        setCountry(event.target.value)
+    const handleUpdateDescription = (event) => {
+        setDescription(event.target.value)
     }
-    const handleUpdateApplicationText = (event) => {
-        setApplicationText(event.target.value)
+    const handleUpdateDuration = (event) => {
+        setDuration(event.target.value)
     }
 
     return (
@@ -57,18 +58,19 @@ const FormPage = () => {
         <NavBar />
         <ActualPage>formulário de candidatura</ActualPage>
         <Inputs>
-            <p>nome</p>
+            <p>título da viagem</p>
             <input value={name} onChange={handleUpdateName}/>
-            <p>idade</p>
-            <input value={age} onChange={handleUpdateAge}/>
-            <p>profissão</p>
-            <input value={profession} onChange={handleUpdateProfession}/>
-            <p>país</p>
-            <input value={country} onChange={handleUpdateCountry}/>
-            <p>por que você é um bom candidate?</p>
-            <input value={applicationText} onChange={handleUpdateApplicationText}/>
+            <p>planeta</p>
+            <input value={planet} onChange={handleUpdatePlanet}/>
+            <p>date</p>
+            <input value={date} type="date" onChange={handleUpdateDate}/>
+            <p>descrição</p>
+            <input value={description} onChange={handleUpdateDescription}/>
+            <p>duração em dias</p>
+            <input value={duration} type="number" onChange={handleUpdateDuration}/>
         </Inputs>   
-        <Button>CANDIDATAR</Button> 
+        <Button>CRIAR VIAGEM</Button> 
+        <Button>VOLTAR</Button> 
     </Form>
     )
 }

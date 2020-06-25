@@ -12,6 +12,7 @@ const HomePage = () => {
     }
 
     const Home = styled.div`
+    font-family: 'Allerta', sans-serif;
     color: white;
     background-color: #69868C;
     width: 100vw;
@@ -26,6 +27,7 @@ const HomePage = () => {
     `
     
     const Button = styled.button`
+    font-family: 'Allerta', sans-serif;
     color: white;
     width: 264px;
     height: 31px;
@@ -37,7 +39,7 @@ const HomePage = () => {
         <NavBar />
             <CTA>
                 <h4>Encontre as melhores viagens espaciais</h4>
-                <Button onClick={goToTripsPage}>Viagens</Button>
+                <Button onClick={goToTripsPage}>VER VIAGENS</Button>
             </CTA>
     </Home>
 )

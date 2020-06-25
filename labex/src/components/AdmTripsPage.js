@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import NavBar from './NavBar'
 
-const ListTripsPage = () => {
+const AdmListTripsPage = () => {
 
     const ListTrips = styled.div`
         font-family: 'Allerta', sans-serif;
@@ -29,6 +29,7 @@ const ListTripsPage = () => {
         height: 31px;
         background: rgba(171, 31, 31, 0.93);
         border-radius: 100px;
+        margin-left: 8vw;
         :hover{
             background: #A84700;
         }
@@ -52,12 +53,9 @@ const ListTripsPage = () => {
     }, [])
 
     const history = useHistory();
-    
-    const goToFormPage = () => {
-        const id = 
-        history.push("/form")
+    const goBack = () => {
+        history.push("/adm")
     }
-
     return (
         <ListTrips>
             <NavBar />
@@ -68,11 +66,12 @@ const ListTripsPage = () => {
                 (trips.map(trip => <div>
                             <p><b>{trip.name}</b> - {trip.date} - {trip.planet} - {trip.durationInDays} dias</p>
                             <p>{trip.description}</p>
-                            <Button onClick={goToFormPage}>CANDIDATAR</Button>
+                            <hr />
                             </div>))}
             </Trips>
+            <Button onClick={goBack} >Voltar</Button>
         </ListTrips>
     )
 }
 
-export default ListTripsPage
+export default AdmListTripsPage
