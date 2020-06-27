@@ -21,7 +21,7 @@ const App = () => {
           <Route exact path="/list-trips">
             <ListTripsPage />
           </Route>
-          <Route exact path="/form">
+          <Route exact path="/form/:id">
             <FormPage />
           </Route>
           <Route exact path="/login">
@@ -33,15 +33,12 @@ const App = () => {
           <Route exact path="/adm-createtrip">
             <AdmCreateTripPage />
           </Route>
-          <Route exact path="/adm-details">
+          <Route exact path="/adm-details/:id">
             <AdmDetailsPage />
           </Route>
           <Route exact path="/adm-trip">
             <AdmTripsPage />
           </Route>
-          
-          
-
         </Switch>
       </BrowserRouter>
   );

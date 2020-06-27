@@ -1,75 +1,95 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import Axios from 'axios';
+import { useParams } from 'react-router-dom'
 
 import NavBar from './NavBar'
-const Form = styled.div`
-        font-family: 'Allerta', sans-serif;
-        color: white;
-        background-color: #69868C;
-        width: 100vw;
-        height: 100vh;
-    `
-    const ActualPage = styled.h2`
-        margin-left: 4vw;
-    `
-    const Inputs = styled.div` 
-        font-size: small;
-        padding-left: 10vw;
-        padding-top: 1vw;
-        display: block;
-    `
-    const Button = styled.button`
-        font-family: 'Allerta', sans-serif;
-        color: white;
-        width: 150px;
-        height: 31px;
-        background: rgba(171, 31, 31, 0.93);
-        border-radius: 100px;
-        margin-left: 10vw;
-        margin-top: 2vw;
-    `
+
+import { Form, ActualPage, Inputs, Label, Button } from './styled'
+
+const useForm = initialValues => {
+    const [form, setForm] = useState(initialValues);
+    const onChange = (name, value) => {
+        const newForm = { ...form, [name]: value }
+        setForm(newForm)
+    }
+    return { form, onChange }
+}
+
 const FormPage = () => {
-    
-    const [ name, setName] = useState("")
-    const [ age, setAge] = useState("")
-    const [ profession, setProfession] = useState("")
-    const [ country, setCountry] = useState("")
-    const [ applicationText, setApplicationText] = useState("")
-    
-    const handleUpdateName = (event) => {
-        setName(event.target.value)
+
+    const { id } = useParams()
+
+    const { form, onChange } = useForm({ name: "", age: "", profession: "", country: "", applicationText: "" })
+
+    const handleInputChange = event => {
+        const { name, value } = event.target;
+        onChange(name, value)
     }
-    const handleUpdateAge = (event) => {
-        setAge(event.target.value)
+    const handleSubmit = event => {
+        event.preventDefault()
+        submitForm()
     }
-    const handleUpdateProfession = (event) => {
-        setProfession(event.target.value)
-    }
-    const handleUpdateCountry = (event) => {
-        setCountry(event.target.value)
-    }
-    const handleUpdateApplicationText = (event) => {
-        setApplicationText(event.target.value)
+    const submitForm = () => {
+        Axios
+            .post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/lais-mello/trips/${id}/apply`, form)
+            .then(response => {
+                console.log(response)
+                alert(response.data.message)
+            })
+            .catch(e => {
+                console.log(e)
+            })
     }
 
+
     return (
-    <Form>
-        <NavBar />
-        <ActualPage>formulário de candidatura</ActualPage>
-        <Inputs>
-            <p>nome</p>
-            <input value={name} onChange={handleUpdateName}/>
-            <p>idade</p>
-            <input value={age} onChange={handleUpdateAge}/>
-            <p>profissão</p>
-            <input value={profession} onChange={handleUpdateProfession}/>
-            <p>país</p>
-            <input value={country} onChange={handleUpdateCountry}/>
-            <p>por que você é um bom candidate?</p>
-            <input value={applicationText} onChange={handleUpdateApplicationText}/>
-        </Inputs>   
-        <Button>CANDIDATAR</Button> 
-    </Form>
+        <Form onSubmit={handleSubmit}>
+            <NavBar />
+            <ActualPage>formulário de candidatura</ActualPage>
+            <Inputs>
+                <Label>nome</Label>
+                <input
+                    required
+                    name="name"
+                    value={form.name}
+                    type="text"
+                    pattern="[A-Za-z ]{3,}"
+                    title="No mínimo 3 letras!"
+                    onChange={handleInputChange} />
+                <Label>idade</Label>
+                <input
+                    required
+                    name="age"
+                    value={form.age}
+                    type="number"
+                    min="18"
+                    onChange={handleInputChange} />
+                <Label>profissão</Label>
+                <input
+                    required
+                    name="profession"
+                    value={form.profession}
+                    type="text"
+                    pattern="[A-Za-z ]{10,}"
+                    title="No mínimo 10 caracteres!"
+                    onChange={handleInputChange} />
+                <Label>país</Label>
+                <input
+                    required
+                    name="country"
+                    value={form.country}
+                    onChange={handleInputChange} />
+                <Label>por que você é um bom candidate?</Label>
+                <input
+                    required
+                    name="applicationText"
+                    value={form.text}
+                    pattern="[A-Za-z ]{30,}"
+                    title="No mínimo 30 caracteres!"
+                    onChange={handleInputChange} />
+                <Button type="submit">CANDIDATAR</Button>
+            </Inputs>
+        </Form>
     )
 }
 

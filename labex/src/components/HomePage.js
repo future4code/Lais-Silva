@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components'
+
+import { Home, CTA, Button } from './styled'
 
 import NavBar from './NavBar'
 
@@ -10,30 +11,7 @@ const HomePage = () => {
     const goToTripsPage = () => {
         history.push("/list-trips")
     }
-
-    const Home = styled.div`
-    font-family: 'Allerta', sans-serif;
-    color: white;
-    background-color: #69868C;
-    width: 100vw;
-    height: 100vh;
-    `
-    const CTA = styled.div`
-    position: absolute;
-    width: 651px;
-    height: 311px;
-    left: 600px;
-    top: 200px;
-    `
     
-    const Button = styled.button`
-    font-family: 'Allerta', sans-serif;
-    color: white;
-    width: 264px;
-    height: 31px;
-    background: rgba(171, 31, 31, 0.93);
-    border-radius: 100px;
-    `
     return (
     <Home>
         <NavBar />

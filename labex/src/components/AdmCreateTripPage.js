@@ -1,77 +1,132 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import {PageStyle, ActualPage, Inputs, Button, BackButton} from  './styled'
+import axios from 'axios'
 
 import NavBar from './NavBar'
-const Form = styled.div`
-        font-family: 'Allerta', sans-serif;
-        color: white;
-        background-color: #69868C;
-        width: 100vw;
-        height: 100vh;
-    `
-    const ActualPage = styled.h2`
-        margin-left: 4vw;
-    `
-    const Inputs = styled.div` 
-        font-size: small;
-        padding-left: 10vw;
-        padding-top: 1vw;
-        display: block;
-    `
-    const Button = styled.button`
-        font-family: 'Allerta', sans-serif;
-        color: white;
-        width: 150px;
-        height: 31px;
-        background: rgba(171, 31, 31, 0.93);
-        border-radius: 100px;
-        margin-left: 10vw;
-        margin-top: 2vw;
-        display: block;
-    `
+
+    const useForm = initialValues => {
+        const [form, setForm] = useState(initialValues);
+        const onChange = (name, value) => {
+            const newForm = {...form, [name]: value}
+            setForm(newForm)
+        }
+        return {form, onChange}
+    }
 const FormPage = () => {
+
+    const {form, onChange} = useForm({name:"", planet: "", date:"", description:"", durationInDays:""})
     
-    const [name, setName] = useState("")
-    const [planet, setPlanet] = useState("")
-    const [date, setDate] = useState("")
-    const [description, setDescription] = useState("")
-    const [duration, setDuration] = useState("")
+    const handleInputChange = (event) => {
+        const {name, value} = event.target;
+        onChange(name, value)
+    }
+
+    const createTrip = () => {
+
+        const token = window.localStorage.getItem('token')
+        
+        const axiosConfig = {
+            headers : {auth: token}
+        }
+        axios
+            .post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/lais-mello/trips", form , axiosConfig)
+            .then(response => {
+                console.log(response)
+                console.log(form)
+            })
+            .catch(e => {
+                console.log(e)
+            })
+    }
     
-    const handleUpdateName = (event) => {
-        setName(event.target.value)
-    }
-    const handleUpdatePlanet = (event) => {
-        setPlanet(event.target.value)
-    }
-    const handleUpdateDate = (event) => {
-        setDate(event.target.value)
-    }
-    const handleUpdateDescription = (event) => {
-        setDescription(event.target.value)
-    }
-    const handleUpdateDuration = (event) => {
-        setDuration(event.target.value)
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        createTrip()
     }
 
     return (
-    <Form>
-        <NavBar />
-        <ActualPage>formulário de candidatura</ActualPage>
-        <Inputs>
-            <p>título da viagem</p>
-            <input value={name} onChange={handleUpdateName}/>
-            <p>planeta</p>
-            <input value={planet} onChange={handleUpdatePlanet}/>
-            <p>date</p>
-            <input value={date} type="date" onChange={handleUpdateDate}/>
-            <p>descrição</p>
-            <input value={description} onChange={handleUpdateDescription}/>
-            <p>duração em dias</p>
-            <input value={duration} type="number" onChange={handleUpdateDuration}/>
-        </Inputs>   
-        <Button>CRIAR VIAGEM</Button> 
-        <Button>VOLTAR</Button> 
-    </Form>
+        <PageStyle>
+            <NavBar />
+            <ActualPage>formulário de candidatura</ActualPage>
+            <Inputs onSubmit={handleSubmit}>
+                <p>título da viagem</p>
+                <input 
+                required
+                name="name"
+                value={form.name} 
+                pattern="{5,}"
+                onChange={handleInputChange}/>
+                <p>planeta</p>
+                <select 
+                required
+                name="planet"
+                value={form.planet} 
+                onChange={handleInputChange}>
+                    <option
+                        key=""
+                        value="">
+                    </option>
+                    <option
+                        key="Mercúrio"
+                        value="Mercúrio">
+                            Mercúrio
+                    </option>
+                    <option
+                        key="Vênus"
+                        value="Vênus">
+                            Vênus
+                    </option>
+                    <option
+                        key="Marte"
+                        value="Marte">
+                            Marte
+                    </option>
+                    <option
+                        key="Júpiter"
+                        value="Júpiter">
+                            Júpiter
+                    </option>
+                    <option
+                        key="Saturno"
+                        value="Saturno">
+                            Saturno
+                    </option>
+                    <option
+                        key="Urano"
+                        value="Urano">
+                            Urano
+                    </option>
+                    <option
+                        key="Netuno"
+                        value="Netuno">
+                            Netuno
+                    </option>
+                </select>
+                <p>date</p>
+                <input 
+                required
+                name="date"
+                value={form.date} 
+                type="date" 
+                onChange={handleInputChange}/>
+                <p>descrição</p>
+                <input 
+                required
+                name="description"
+                value={form.description} 
+                pattern="{30,}"
+                onChange={handleInputChange}/>
+                <p>duração em dias</p>
+                <input 
+                name="durationInDays"
+                value={form.durationInDays} 
+                type="number" 
+                min="50"
+                onChange={handleInputChange}/>
+                <Button>CRIAR VIAGEM</Button> 
+            </Inputs>   
+            <BackButton>VOLTAR</BackButton> 
+        </PageStyle>
     )
 }
 

@@ -1,44 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
-import styled from 'styled-components'
+import { ListTrips, ActualPage, Trips, Button } from './styled'
 
 import NavBar from './NavBar'
 
-const ListTripsPage = () => {
+const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/lais-mello/trips"
 
-    const ListTrips = styled.div`
-        font-family: 'Allerta', sans-serif;
-        background-color: #69868C;
-        width: 100vw;
-        height: 100vh;
-        color: white;
-    `
-    const ActualPage = styled.h2`
-        margin-left: 4vw;
-    `
-    const Trips = styled.div`
-        margin-left: 8vw;
-        font-size: small;
-        width: 30vw;
-    `
-    const Button = styled.button`
-        font-family: 'Allerta', sans-serif;
-        color: white;
-        width: 264px;
-        height: 31px;
-        background: rgba(171, 31, 31, 0.93);
-        border-radius: 100px;
-        :hover{
-            background: #A84700;
-        }
-    `
+const ListTripsPage = () => {
 
     const [ trips , setTrips ] = useState([])
 
     const getTrips = () => {
         axios
-        .get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/lais-mello/trips")
+        .get(baseUrl)
         .then((response => {
             setTrips(response.data.trips)
         }))
@@ -53,9 +28,8 @@ const ListTripsPage = () => {
 
     const history = useHistory();
     
-    const goToFormPage = () => {
-        const id = 
-        history.push("/form")
+    const goToFormPage = (id) => {
+        history.push(`/form/${id}`)
     }
 
     return (
@@ -66,10 +40,10 @@ const ListTripsPage = () => {
                 {trips.length === 0 ? (<p>Carregando...</p>)
                 :
                 (trips.map(trip => <div>
-                            <p><b>{trip.name}</b> - {trip.date} - {trip.planet} - {trip.durationInDays} dias</p>
-                            <p>{trip.description}</p>
-                            <Button onClick={goToFormPage}>CANDIDATAR</Button>
-                            </div>))}
+                    <p><b>{trip.name}</b> - {trip.date} - {trip.planet} - {trip.durationInDays} dias</p>
+                    <p>{trip.description}</p>
+                    <Button onClick={() => goToFormPage(trip.id)}>CANDIDATAR</Button>
+                </div>))}
             </Trips>
         </ListTrips>
     )
