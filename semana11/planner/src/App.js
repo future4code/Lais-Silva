@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
+import styled from 'styled-components'
 
 import DayCard from './components/DayCard'
 import Header from './components/Header';
 
-
 const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-mello-lais"
+
+const AllPage = styled.div`
+    width: 100%;
+    height: 100%;
+  `
 
 const App = () => {
 
@@ -19,73 +24,46 @@ const App = () => {
       })
   }
 
-
   useEffect(() => {
     getTasks()
   }, [])
 
-  const [text, setText] = useState("")
-  const [day, setDay] = useState("")
 
-  const handleInputChange = (event) => {
-    setText(event.target.value)
-  }
-  const handleDayChange = (event) => {
-    setDay(event.target.value)
-  }
-
-  const createTask = () => {
-    const body = {
-      text: text,
-      day: day
-    }
-    axios
-      .post(`${baseUrl}`, body)
-      .then(() => {
-        getTasks()
-        setText("")
-      })
-  }
-  
   return (
 
-    <div>
+    <AllPage>
       <Header
-        day={day}
-        text={text}
-        handleInputChange={handleInputChange}
-        handleDayChange={handleDayChange}
-        createTask={createTask} 
+        getTasks={getTasks}
       />
       <DayCard
-      day={"sunday"}
-      tasks={tasks}
+        day={"sunday"}
+        tasks={tasks}
       />
       <DayCard
-      day={"monday"}
-      tasks={tasks}
+        day={"monday"}
+        tasks={tasks}
       />
       <DayCard
-      day={"tuesday"}
-      tasks={tasks}
+        day={"tuesday"}
+        tasks={tasks}
       />
       <DayCard
-      day={"wednesday"}
-      tasks={tasks}
+        day={"wednesday"}
+        tasks={tasks}
       />
       <DayCard
-      day={"thursday"}
-      tasks={tasks}
+        day={"thursday"}
+        tasks={tasks}
       />
       <DayCard
-      day={"friday"}
-      tasks={tasks}
+        day={"friday"}
+        tasks={tasks}
       />
       <DayCard
-      day={"saturday"}
-      tasks={tasks}
+        day={"saturday"}
+        tasks={tasks}
       />
-    </div>
+    </AllPage>
   );
 }
 
