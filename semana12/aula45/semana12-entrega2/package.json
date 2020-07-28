@@ -1,0 +1,20 @@
+{
+  "name": "semana12-entrega2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "name-and-age": "tsc && node ./build/nameAndAge.js",
+    "math-operations": "tsc && node ./build/mathOperations.js",
+    "set-tasks": "tsc && node ./build/setTasks.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Lais",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^14.0.26",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
