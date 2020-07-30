@@ -1,0 +1,42 @@
+1. 
+a. O endpoint para acessar todos os usuários é 
+https://us-central1-labenu-apis.cloudfunctions.net/labenews/subscribers/all;
+b. Uma função função assíncrona que retorna um "array de qualquer coisa"
+recebe o tipo Promise<any> como tipo de retorno. 
+c. Função se encontra no index.ts.
+
+2. 
+a. A única diferença que percebi foi o local onde representamos
+ser uma função async; além disso, a função com arrow function 
+é declarada como constante. 
+b. A função solicitada, usando arrow function está 
+comentada no arquivo index.ts.
+
+3.
+a. Se apenas alterarmos a saída para o type Users[],
+teremos erro pois o retorno não ocorre nos moldes
+da declaração do tipo. 
+b. Mapeamos o resultado de uma função async para
+termos como resultante uma variável nos moldes que precisamos 
+para manusear os dados. 
+c. A função solicitada está no arquivo index.ts.
+
+4. 
+a. A função é do tipo async, com uso de axios e método
+HTTP "put".
+b. A função solicitada está no arquivo index.ts.
+
+5.
+a. Podem ocorrer problemas forEach, porque nenhum dos métodos
+de array foi feito pensando em funções assíncronas.
+b. A função solicitada está no arquivo index.ts.
+
+6.
+a. A promise.All recebe um array de promises
+e gera um array com as respostas dessas promises.
+b. Promise.All é util para diminuir o tempo de espera entre 
+o processamento completo de uma função async, 
+realizando as funções em paralelo.
+c. A função solicitada está no arquivo index.ts.
+
+7.
