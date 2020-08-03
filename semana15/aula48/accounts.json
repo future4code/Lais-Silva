@@ -1,0 +1,30 @@
+[
+   {
+      "balance": 0,
+      "transactions": [],
+      "cpf": "lais",
+      "name": "1234",
+      "age": 30
+   },
+   {
+      "balance": 0,
+      "transactions": [],
+      "cpf": "pedro",
+      "name": "123456",
+      "age": 30
+   },
+   {
+      "balance": 0,
+      "transactions": [],
+      "cpf": "lucia",
+      "name": "1234567",
+      "age": 30
+   },
+   {
+      "balance": 0,
+      "transactions": [],
+      "cpf": "lucia",
+      "name": "1234567",
+      "age": 30
+   }
+]
