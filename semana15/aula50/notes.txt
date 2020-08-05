@@ -1,0 +1,8 @@
+cálculo de contas de energia elétrica
+
+valor base: kWh (unidade de consumo de energia) é R$ 0.75. 
+
+    **Cliente Residencial** = R$ R$0.75 
+    **Cliente Comercial** = R$ R$0.53 ( - 30% )
+    **Cliente Industrial** paga R$0.45 ( - 40% ) + R$100,00 por máquina 
+
