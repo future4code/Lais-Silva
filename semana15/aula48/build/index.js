@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const userAccount_1 = require("./userAccount");
+const JSONManager_1 = require("./JSONManager");
+const bank_1 = require("./bank");
+const newName = "lucia";
+const newAge = 30;
+const newCPF = "1234567";
+const newUserAccont = new userAccount_1.UserAccount(newName, newCPF, newAge);
+const fileManager = new JSONManager_1.JSONManager('./accounts.json');
+const accountsList = fileManager.readDataBase();
+const bank = new bank_1.Bank(accountsList, fileManager);
+bank.createAccount(newUserAccont);
+newUserAccont.getBalance();
