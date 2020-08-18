@@ -6,9 +6,10 @@ export default async function deleteUser(req: Request, res: Response) {
 
     try {
         const id = req.params.id;
-        const token = req.headers.token as string;
+        console.log(id)
+        const token = req.headers.authorization as string;
 
-        const tokenData = await Authenticator.getTokenData(token)
+        const tokenData = Authenticator.getTokenData(token)
 
         if (!token) {
             res
@@ -24,12 +25,13 @@ export default async function deleteUser(req: Request, res: Response) {
         }
 
         await new UserDB().deleteUser(id)
+        console.log(res)
         res
             .status(200)
             .send({
                 message: "Usuário apagado!",
             });
-
+            
     } catch (error) {
         res.status(401)
     }

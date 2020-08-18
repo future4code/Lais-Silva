@@ -6,7 +6,7 @@ export default class UserDB extends BaseDB {
     async createUser(
         id: string,
         email: string,
-        password: string, 
+        password: string,
         role: string
     ) {
         await this.getConnection()
@@ -72,6 +72,5 @@ export default class UserDB extends BaseDB {
         DELETE FROM ${UserDB.tableName}
         WHERE id = "${id}"
         `)
-        await this.destroyConnection()
     }
 }
